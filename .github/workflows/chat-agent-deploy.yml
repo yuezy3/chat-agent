@@ -48,4 +48,5 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd ~/chat-agent # we move into our app's folder
+            git pull
             ./deploy-run.sh # run this script
