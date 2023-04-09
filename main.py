@@ -38,4 +38,4 @@ async def make_chat(chatreq: Chatreq):
             {"role": "user", "content": "Where was it played?"}
         ]
     )
-    return {id:chatreq["id"], msg:response['choices'][0]['message']['content']}
+    return {"id":chatreq["id"], "msg":response['choices'][0]['message']['content']}
