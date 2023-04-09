@@ -8,7 +8,7 @@ git pull
 # install dependencies
 cd "$app_root"
 python3 -m venv venv # create venv
-activate venv/bin/activate # active venv
+source venv/bin/activate # active venv
 if [ -f requirements.txt ]; then pip3 install -r requirements.txt; fi #install dependencies
 
 # run program
