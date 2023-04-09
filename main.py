@@ -3,6 +3,8 @@ from pydantic import BaseModel
 
 import os
 import openai
+from dotenv import load_dotenv
+load_dotenv() 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 openai.ChatCompletion.create(
@@ -28,6 +30,7 @@ async def root():
 
 @app.post("/api/chat")
 async def make_chat(chatreq: Chatreq):
+    print(f"get {chatreq}")
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
@@ -38,4 +41,4 @@ async def make_chat(chatreq: Chatreq):
             {"role": "user", "content": "Where was it played?"}
         ]
     )
-    return {"id":chatreq["id"], "msg":response['choices'][0]['message']['content']}
+    return {"id":chatreq.id, "msg":response['choices'][0]['message']['content']}
