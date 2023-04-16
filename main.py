@@ -35,7 +35,7 @@ def createChatMsg(chatreq: Chatreq):
     else:
         msgs = [{"role": "system", "content": "You are a helpful assistant."}, usermsg]
         isnew = True
-    db.upsert({"chatid":chatreq.chatid, "msgs":msgs, "isnew":isnew, "lastmodify":datetime.now(timezone.utc).strftime(utcstring)}, Chat.chatid == chatreq.chatid)
+    db.upsert({"chatid":chatreq.chatid, "msgs":msgs, "isnew":isnew, "lastmodify":datetime.now(timezone.utc).strftime(utcfmtstr)}, Chat.chatid == chatreq.chatid)
     return msgs
 @app.get("/")
 async def root():
