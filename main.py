@@ -20,7 +20,7 @@ class Chatreq(BaseModel):
 app = FastAPI()
 
 def createChatMsg(chatreq: Chatreq):
-    utcfmtstr = "%Y-%m-%d %H:%M:%S.%f%Z"
+    utcfmtstr = "%Y-%m-%d %H:%M:%S.%f%z"
     usermsg = {"role": "user", "content":f"{chatreq.msg}"}
     msgs = []
     isnew = True
