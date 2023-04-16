@@ -22,8 +22,8 @@ app = FastAPI()
 def createChatMsg(chatreq: Chatreq):
     utcfmtstr = "%Y-%m-%d %H:%M:%S.%f%Z"
     usermsg = {"role": "user", "content":f"{chatreq.msg}"}
-    msgs
-    isnew
+    msgs = []
+    isnew = True
     if db.contains(Chat.chatid == chatreq.chatid):
         lastmodify = datetime.strptime((db.get(Chat.chatid == chatreq.chatid))["lastmodify"], utcfmtstr)
         if datetime.now(timezone.utc) - lastmodify > timedelta(minutes=30) : # 30 minutes ago
